@@ -110,13 +110,18 @@ link back to this section so visitors know the logins are fake.
 
 ## Files
 
+The repository root *is* the demo folder, so every path below is relative to it:
+
 ```
-demo/
-  index.html, treatments.html, packages.html, doctors.html,
-  book.html, account.html, contact.html, admin.html
-  assets/styles.css     design system, public site and admin styles
-  assets/store.js       demo data, booking rules, slots, notifications
-  assets/site.js        public site behaviour
-  assets/admin.js       staff panel behaviour
-  start-demo.cmd        one-click local server
+index.html, treatments.html, packages.html, doctors.html,
+book.html, account.html, contact.html, admin.html
+assets/styles.css     design system, public site and admin styles
+assets/store.js       demo data, booking rules, slots, notifications
+assets/site.js        public site behaviour
+assets/admin.js       staff panel behaviour
+start-demo.cmd        one-click local server (Windows)
+.nojekyll             keeps GitHub Pages from running Jekyll
 ```
+
+Because the site is plain HTML/CSS/JS with relative links, it can be served from
+any static host or opened from disk. Nothing depends on a build step.
