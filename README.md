@@ -80,6 +80,34 @@ Demo data lives in the browser's `localStorage` under `ayurved_demo_v2`.
 To restore the sample data: **Admin → Clinic settings → Reset demo data**, or
 clear site data for `127.0.0.1`.
 
+## Security and privacy notes
+
+This is a **front-end demo, not a product**. It has no server, no database and
+no real authentication, so please read the following before sharing it widely.
+
+- **No real secrets are stored here.** The staff password `demo123` and the OTP
+  `123456` are hard-coded placeholders so the demo can be clicked through. They
+  are not credentials for anything real, and they are not private.
+- **All patients, phone numbers, emails and health records are fictional.**
+  The numbers are obvious placeholders. Never type real patient information into
+  this demo — it is stored unencrypted in the browser and is world readable if
+  you host it publicly.
+- **Nothing leaves the browser.** Data is written only to `localStorage` on the
+  machine that opens the page; there are no outbound calls to WhatsApp, SMS or
+  any analytics provider.
+- **The local server is loopback-only.** `start-demo.cmd` binds to
+  `127.0.0.1:5500`. Do not change that to `0.0.0.0` on a shared or public
+  network, because anything on that network could then open the staff panel.
+- **User input is HTML-escaped before rendering** (`esc()` in `site.js` and
+  `admin.js`), which keeps the simulated records safe to display. Keep that
+  pattern if you extend the pages.
+- **Not production ready.** A real deployment needs a backend, server-side
+  authorisation, real OTP delivery, HTTPS, rate limiting, encrypted storage and
+  an auditable record of who viewed which patient. None of that exists here.
+
+If you plan to publish this on GitHub Pages, keep it as-is (demo data only) and
+link back to this section so visitors know the logins are fake.
+
 ## Files
 
 ```
