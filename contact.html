@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — Ayurved Clinic</title>
+  <meta name="description" content="Contact Ayurved Clinic. Open daily 10 AM to 8 PM.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Crect width=%2224%22 height=%2224%22 rx=%226%22 fill=%22%231c6046%22/%3E%3Cpath d=%22M19 5C11 5 5 9 5 15a4 4 0 0 0 4 4c6 0 10-6 10-14Z%22 fill=%22%23fff%22/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/styles.css?v=20261020a">
+</head>
+<body data-page="contact">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header id="site-header"></header>
+
+  <main id="main">
+    <div class="page-head">
+      <div class="container">
+        <span class="eyebrow"><span class="dot"></span> Contact</span>
+        <h1>Visit or ask a question</h1>
+        <p>Send an enquiry and the clinic will call you back. For appointment changes, please call the clinic directly.</p>
+      </div>
+    </div>
+
+    <section class="section-tight" style="padding-bottom:3rem">
+      <div class="container">
+        <div class="booking-layout">
+          <div class="booking-main">
+            <h2 style="font-size:1.3rem">Send an enquiry</h2>
+            <form id="contact-form" novalidate>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="c-name">Your name *</label>
+                  <input class="input" id="c-name" autocomplete="name" placeholder="Full name">
+                  <p class="field-error" id="c-name-err"></p>
+                </div>
+                <div class="field">
+                  <label for="c-mobile">Mobile number *</label>
+                  <input class="input" id="c-mobile" inputmode="numeric" autocomplete="tel" maxlength="10" placeholder="98765 43210">
+                  <p class="field-error" id="c-mobile-err"></p>
+                </div>
+                <div class="field full">
+                  <label for="c-message">Message *</label>
+                  <textarea class="textarea" id="c-message" placeholder="What would you like to ask?"></textarea>
+                  <p class="field-error" id="c-message-err"></p>
+                </div>
+              </div>
+              <button class="btn btn-primary" type="submit">Send enquiry</button>
+              <p class="form-note">Demo only — enquiries are stored locally and visible in the admin panel.</p>
+            </form>
+            <div class="alert alert-success mt-2" id="contact-success" tabindex="-1" hidden>
+              Thank you. Your enquiry has been saved and the clinic will call you on the number provided.
+            </div>
+          </div>
+
+          <aside class="summary-card">
+            <h3>Clinic details</h3>
+            <div id="contact-info"></div>
+            <div class="alert alert-warn mt-2">Cancellation and rescheduling are handled by phone only.</div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script src="assets/store.js?v=20261020a"></script>
+  <script src="assets/site.js?v=20261020a"></script>
+</body>
+</html>

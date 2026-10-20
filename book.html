@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book an appointment — Ayurved Clinic</title>
+  <meta name="description" content="Book a 30-minute Ayurvedic appointment online at Ayurved Clinic.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Crect width=%2224%22 height=%2224%22 rx=%226%22 fill=%22%231c6046%22/%3E%3Cpath d=%22M19 5C11 5 5 9 5 15a4 4 0 0 0 4 4c6 0 10-6 10-14Z%22 fill=%22%23fff%22/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/styles.css?v=20261020a">
+</head>
+<body data-page="book">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header id="site-header"></header>
+
+  <main id="main">
+    <div class="page-head">
+      <div class="container">
+        <span class="eyebrow"><span class="dot"></span> Online booking</span>
+        <h1>Book your appointment</h1>
+        <p>Choose a service and a 30-minute slot. No online payment — settle at the clinic.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="stepper" id="booking-stepper" aria-label="Booking steps"></div>
+    </div>
+
+    <div class="container" id="booking">
+      <div class="booking-layout">
+        <div class="booking-main">
+          <section class="step-panel" data-step="1">
+            <div class="step-title">
+              <h2>Choose a service</h2>
+              <span class="muted">Step 1 of 4</span>
+            </div>
+            <div id="service-list"></div>
+            <p class="form-note">Not sure? Start with a consultation — the doctor will advise on therapies.</p>
+          </section>
+
+          <section class="step-panel" data-step="2" hidden>
+            <div class="step-title">
+              <h2>Pick a date &amp; time</h2>
+              <span class="muted">Step 2 of 4</span>
+            </div>
+            <p class="muted" style="font-size:.88rem;margin-top:0">Slots are 30 minutes, 10:00 AM – 8:00 PM. Bookings close 2 hours before the slot.</p>
+            <div class="date-strip" id="date-strip" aria-label="Choose a date"></div>
+            <div class="field" style="max-width:260px">
+              <label for="date-picker">Another date (up to 30 days ahead)</label>
+              <input class="input" id="date-picker" type="date">
+            </div>
+            <h3 id="slot-date-label" style="margin:1.2rem 0 .6rem;font-size:1.05rem"></h3>
+            <div class="slot-grid" id="slot-grid"></div>
+            <p class="alert alert-warn" id="slot-empty" hidden>No open slots on this date. Please pick another day or call the clinic.</p>
+            <div class="slot-legend">
+              <span><i style="background:#fff;border:1px solid var(--line)"></i>Available</span>
+              <span><i style="background:var(--green-700)"></i>Selected</span>
+              <span><i style="background:#f6f3ec;border:1px solid var(--line)"></i>Booked / too late</span>
+            </div>
+          </section>
+
+          <section class="step-panel" data-step="3" hidden>
+            <div class="step-title">
+              <h2>Your details</h2>
+              <span class="muted">Step 3 of 4</span>
+            </div>
+            <div class="alert alert-info" id="logged-in-note" hidden>You are logged in. We will use the details on your patient profile.</div>
+
+            <div id="guest-fields">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="d-name">Full name *</label>
+                  <input class="input" id="d-name" autocomplete="name" placeholder="Full name">
+                  <p class="field-error" id="d-name-err"></p>
+                </div>
+                <div class="field">
+                  <label for="d-mobile">Mobile number *</label>
+                  <div style="display:flex;gap:.5rem">
+                    <input class="input" id="d-mobile" inputmode="numeric" autocomplete="tel" maxlength="10" placeholder="98765 43210">
+                    <button class="btn btn-ghost" type="button" id="send-otp">Send OTP</button>
+                  </div>
+                  <p class="field-error" id="d-mobile-err"></p>
+                </div>
+              </div>
+              <div id="otp-box" hidden>
+                <div class="otp-display"><span>SMS is not connected in the demo. Use this OTP:</span><b id="otp-demo">123456</b></div>
+                <div class="field" style="max-width:260px">
+                  <label for="d-otp">One-time password</label>
+                  <div style="display:flex;gap:.5rem">
+                    <input class="input" id="d-otp" inputmode="numeric" maxlength="6" autocomplete="one-time-code" placeholder="6-digit code">
+                    <button class="btn btn-outline" type="button" id="verify-otp">Verify</button>
+                  </div>
+                  <p class="field-error" id="d-otp-err"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="d-notes">Anything the doctor should know? (optional)</label>
+              <textarea class="textarea" id="d-notes" placeholder="Current complaints, medication, allergies…"></textarea>
+            </div>
+            <p class="form-note">Your mobile number is used for booking updates. Health details are only visible to clinic staff.</p>
+          </section>
+
+          <section class="step-panel" data-step="4" hidden>
+            <div class="step-title">
+              <h2>Review &amp; confirm</h2>
+              <span class="muted">Step 4 of 4</span>
+            </div>
+            <div id="review-box"></div>
+            <label class="check mt-2">
+              <input type="checkbox" id="d-consent">
+              <span>I agree to the clinic storing my details for appointment and treatment purposes, and I understand that cancellation or rescheduling is by phone only.</span>
+            </label>
+            <p class="form-note mt-1">No payment is taken online. The clinic address and phone number will be shown here once provided.</p>
+          </section>
+
+          <div style="display:flex;justify-content:space-between;gap:.6rem;margin-top:1.4rem">
+            <button class="btn btn-ghost" type="button" id="btn-back">Back</button>
+            <button class="btn btn-primary" type="button" id="btn-next">Continue</button>
+          </div>
+        </div>
+
+        <aside class="summary-card" id="booking-summary" aria-live="polite"></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer id="site-footer"></footer>
+  <script src="assets/store.js?v=20261020a"></script>
+  <script src="assets/site.js?v=20261020a"></script>
+</body>
+</html>

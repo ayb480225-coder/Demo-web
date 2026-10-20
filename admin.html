@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clinic staff — Ayurved Clinic</title>
+  <meta name="robots" content="noindex">
+  <meta name="description" content="Staff panel demo for Ayurved Clinic appointments, patients, health records and reports.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22%3E%3Crect width=%2224%22 height=%2224%22 rx=%226%22 fill=%22%231c6046%22/%3E%3Cpath d=%22M19 5C11 5 5 9 5 15a4 4 0 0 0 4 4c6 0 10-6 10-14Z%22 fill=%22%23fff%22/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="assets/styles.css?v=20261020a">
+</head>
+<body class="admin-body" data-page="admin">
+  <main id="admin-login">
+    <div class="login-wrap">
+      <div class="login-card">
+        <div class="brand" style="margin-bottom:1.2rem">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M20 4C11 4 4 8.5 4 15a5 5 0 0 0 5 5c6.5 0 11-7 11-16Z" fill="currentColor"/><path d="M4 20C8 14 12 11 17 9" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </span>
+          <span class="brand-text"><span class="brand-name">Ayurved Clinic</span><span class="brand-sub">Staff panel</span></span>
+        </div>
+        <h1>Staff login</h1>
+        <p class="sub">Manage appointments, patients and clinic content.</p>
+        <form id="login-form" novalidate>
+          <div class="field">
+            <label for="role">Role</label>
+            <select class="select" id="role">
+              <option value="admin">Admin</option>
+              <option value="doctor">Doctor</option>
+              <option value="frontdesk">Front Desk</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input class="input" id="email" type="email" value="admin@clinic.demo" autocomplete="username">
+          </div>
+          <div class="field">
+            <label for="password">Password</label>
+            <input class="input" id="password" type="password" value="demo123" autocomplete="current-password">
+            <p class="field-error" id="login-err"></p>
+          </div>
+          <button class="btn btn-primary btn-block" type="submit">Log in</button>
+        </form>
+        <div class="demo-creds">
+          <strong>Demo credentials</strong><br>
+          Admin · admin@clinic.demo<br>
+          Doctor · doctor@clinic.demo<br>
+          Front Desk · frontdesk@clinic.demo<br>
+          Password for all: <b>demo123</b>
+        </div>
+        <p class="form-note mt-2"><a href="index.html">← Back to the website</a></p>
+      </div>
+    </div>
+  </main>
+
+  <div id="admin-shell" class="admin-shell" hidden>
+    <aside class="admin-side" id="admin-side">
+      <a class="brand" href="admin.html">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M20 4C11 4 4 8.5 4 15a5 5 0 0 0 5 5c6.5 0 11-7 11-16Z" fill="currentColor"/><path d="M4 20C8 14 12 11 17 9" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </span>
+        <span class="brand-text"><span class="brand-name">Ayurved Clinic</span><span class="brand-sub">Staff panel</span></span>
+      </a>
+      <nav class="admin-nav" id="admin-nav" aria-label="Staff modules"></nav>
+      <div class="admin-side-foot">
+        <span class="who" id="side-who"></span>
+        <span id="side-role"></span>
+        <p class="mt-1"><a href="index.html">View website ↗</a></p>
+        <button class="tiny-btn mt-1" type="button" id="logout" style="background:transparent;border-color:rgba(255,255,255,.25);color:#d9ece2">Log out</button>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <header class="admin-top">
+        <button class="admin-menu" id="menu-toggle" type="button" aria-label="Open menu">☰</button>
+        <h1 id="admin-title">Dashboard</h1>
+        <div class="spacer"></div>
+        <span class="date" id="admin-date"></span>
+      </header>
+      <div class="admin-content" id="admin-content"></div>
+    </main>
+  </div>
+
+  <script src="assets/store.js?v=20261020a"></script>
+  <script src="assets/admin.js?v=20261020a"></script>
+</body>
+</html>
